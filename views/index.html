@@ -1,0 +1,136 @@
+<html lang="en">
+    <head>
+        <title>Data Analytics</title>
+        <!-- BEGIN GLOBAL MANDATORY STYLES -->
+        <link href="http://fonts.googleapis.com/css?family=Oswald:400,300,700" rel="stylesheet" type="text/css">
+        <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css"/>
+        <link href="/assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+        <link href="/assets/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css"/>
+        <link href="/assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="/assets/global/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css"/>
+        <link href="/assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css"/>
+        <!-- END GLOBAL MANDATORY STYLES -->
+
+       <!-- BEGIN THEME STYLES -->
+        <!--<link href="/assets/global/css/components.css" rel="stylesheet" type="text/css"/>-->
+        <link href="/assets/global/css/components-rounded.css" rel="stylesheet" type="text/css"/>
+        <link href="/assets/global/css/plugins.css" rel="stylesheet" type="text/css"/>
+        <link href="/assets/admin/layout/css/layout.css" rel="stylesheet" type="text/css"/>
+        <link href="/assets/admin/layout/css/custom.css" rel="stylesheet" type="text/css"/>
+        <link rel="shortcut icon" href="/assets/admin/layout/img/favicon.ico"/>
+        <!-- END THEME STYLES -->
+    </head>
+    <body class="page-header-fixed page-quick-sidebar-over-content">
+        <div class="wrapper" ng-app="App">
+             <header class="page-header">
+                    <nav class="navbar mega-menu" role="navigation">
+                        <div class="container-fluid">
+                            <div class="clearfix navbar-fixed-top">
+                                <!-- Brand and toggle get grouped for better mobile display -->
+                                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <span class="toggle-icon">
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                    </span>
+                                </button>
+                                <!-- End Toggle Button -->
+
+                                <!-- BEGIN LOGO -->
+                                <a id="index" class="page-logo" href="#">
+                                    <img src="/assets/admin/layout/img/logo.png" alt="Logo">
+                                </a>
+                                <!-- END LOGO -->
+                        
+                            </div>
+
+                            <!-- Collect the nav links, forms, and other content for toggling -->
+                            <div class="nav-collapse collapse navbar-collapse navbar-responsive-collapse">
+                                <ul class="nav navbar-nav text-uppercase">
+                                    <li class="dropdown dropdown-fw open">
+                                        <a ui-sref="section1">
+                                            Media
+                                        </a>
+                                    </li>
+                                    <li class="dropdown dropdown-fw">
+                                        <a ui-sref="section2">
+                                            General
+                                        </a>
+                                    </li>
+                                    <li class="dropdown dropdown-fw">
+                                        <a ui-sref="section3">
+                                            Members
+                                        </a>
+                                    </li>
+                                    <li class="dropdown dropdown-fw">
+                                        <a ui-sref="section4">
+                                            Something
+                                        </a>
+                                    </li>
+                                    <li class="dropdown dropdown-fw">
+                                        <a ui-sref="section5">
+                                            More
+                                        </a>
+                                    </li>                    
+                                </ul>
+                            </div>
+                            <!-- END NAVBAR COLLAPSE -->
+                        </div>
+                        <!--/container-->
+                    </nav>
+	         </header>
+                   
+            <div class="container-fluid">
+              <!-- CONTENT GOES HERE -->
+	    	  <div class="page-content">
+	    		<div ui-view></div>
+	         </div>
+			 <!-- Page Content END -->
+
+			<!-- Copyright BEGIN -->
+			    <p class="copyright">2017 © EL AOUTAR HAMZA & EL ABIDI SAMIRA.</p>
+			 <!-- Copyright END -->
+            </div>
+	    </div>
+        
+        <a href="#index" class="go2top"><i class="icon-arrow-up"></i></a>
+        <!-- BEGIN CORE PLUGINS -->
+        <script src="/assets/global/plugins/jquery.min.js" type="text/javascript"></script>
+        <script src="/assets/global/plugins/jquery-migrate.min.js" type="text/javascript"></script>
+        <script src="/assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="/assets/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js" type="text/javascript"></script>
+        <script src="/assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+        <script src="/assets/global/plugins/jquery.blockui.min.js" type="text/javascript"></script>
+        <script src="/assets/global/plugins/uniform/jquery.uniform.min.js" type="text/javascript"></script>
+        <script src="/assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js" type="text/javascript"></script>
+        <!-- END CORE PLUGINS -->
+        
+        <!-- BEGIN ANGULAR -->
+        <script src="/assets/global/plugins/angularjs/angular.min.js" type="text/javascript"></script>
+        <script src="/assets/angular-ui-router/release/angular-ui-router.min.js"></script>
+        <script src="/assets/oclazyload/dist/ocLazyLoad.min.js"></script>
+        <script src="/assets/underscore/underscore-min.js"></script>
+        <script src="/assets/restangular/dist/restangular.min.js"></script>
+        <!-- END ANGULAR -->
+        
+        <!-- BEGIN PAGE LEVEL SCRIPTS -->
+        <script src="/assets/global/scripts/metronic.js" type="text/javascript"></script>
+        <script src="/assets/admin/layout/scripts/layout.js" type="text/javascript"></script>
+        <script src="/assets/admin/layout/scripts/quick-sidebar.js" type="text/javascript"></script>
+        <script src="/assets/chart.js/dist/Chart.min.js" type="text/javascript"></script>
+        <!--<script src="/assets/admin/pages/scripts/index.js" type="text/javascript"></script>-->
+        <!--<script src="/assets/admin/pages/scripts/tasks.js" type="text/javascript"></script>-->
+        <!-- END PAGE LEVEL SCRIPTS -->
+
+        <script src="/assets/app.js" type="text/javascript"></script>
+        <script>
+            jQuery(document).ready(function() {    
+                Metronic.init(); // init metronic core componets
+                Layout.init(); // init layout
+                QuickSidebar.init(); // init quick sidebar
+            });
+        </script>
+        <script src="/assets/routing.js" type="text/javascript"></script>
+    </body>
+</html>
