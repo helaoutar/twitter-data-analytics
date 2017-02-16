@@ -9,14 +9,27 @@ myApp.config(function($stateProvider,$urlRouterProvider){
           deps: ['$ocLazyLoad', '$rootScope', '$state', function ($ocLazyLoad, $rootScope, $state) {
                   return $ocLazyLoad.load({
                       name: 'App',
-                      files: ['/assets/controllers/Section1Controller.js']
+                      files: ['/assets/controllers/Section1Controller.js',
+                              '/assets/managers/Utils.js'   
+                      ]
                     });
                 }]
             }
     },{
         name:'section2',
         url:'/2',
-        templateUrl:'/section2.html'
+        templateUrl:'/section2.html',
+        controller: "Section2Controller",
+        resolve: {
+          deps: ['$ocLazyLoad', '$rootScope', '$state', function ($ocLazyLoad, $rootScope, $state) {
+                  return $ocLazyLoad.load({
+                      name: 'App',
+                      files: ['/assets/controllers/Section2Controller.js',
+                              '/assets/managers/Utils.js'   
+                      ]
+                    });
+                }]
+            }
     },{
         name:'section3',
         url:'/3',

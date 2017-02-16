@@ -1,0 +1,16 @@
+
+#lang_dist {
+	width		: 100%;
+	height		: 500px;
+	font-size	: 11px;
+}
+
+#countries_tweets {
+  width: 100%;
+  height: 500px;
+}	
+
+#hourly_activity{
+	width	: 100%;
+	height	: 500px;
+}
