@@ -22,7 +22,6 @@ myApp.factory('Utils',function(){
            chart.zoomToIndexes(chart.dataProvider.length - 40, chart.dataProvider.length - 1);
         },
         getAmBarChart:function(id,data,flag,x,y){  // flag : export or not, x: x_name, y: y_name 
-            console.log(data)
             AmCharts.makeChart(id,{
                 "type": "serial",
                 "theme": "light",
@@ -165,4 +164,4 @@ myApp.factory('Utils',function(){
                 this.zoomChart(chart);
         }
     }
-})
+});

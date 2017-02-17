@@ -757,7 +757,7 @@
 	var getLanguageNativeName = function(key) {
 		key = key.slice(0,2);
 		var lang = isoLangs[key];
-		return lang ? lang.nativveName : undefined;
+		return lang ? lang.nativeName : undefined;
 	}
 	window.getLanguageName = getLanguageName;
 	window.getLanguageNativeName = getLanguageNativeName;
