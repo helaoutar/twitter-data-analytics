@@ -4,32 +4,101 @@ angular.module("App").controller("Section4Controller",["$scope","$http","Utils",
         /* Technology companies*/
         $http({
             method: 'GET',
-            url: 'http://localhost:8080/technology/*',
+            url: 'http://159.203.164.202:8080/technology/*',
             headers: {
                 'Accept':'Application/json',
                 'Content-type':'charset=utf-8'
             }
             }).then(function successCallback(response) {
-                var data_statuses=[];
-                var data_followers=[];
-                console.log(response.data.Row.length)
-                for(var i=0;i<response.data.Row.length;i++){
+                var data=[];
+                var zeroData=[
+                    {
+                        'name':'Microsoft',
+                        'tweets':0,
+                        'followers':0,
+                        'color':Utils.getRandomColor()
+                    },
+                    {
+                        'name':'Google',
+                        'tweets':0,
+                        'followers':0,
+                        'color':Utils.getRandomColor()
+                    },
+                    {
+                        'name':'Twitter',
+                        'tweets':0,
+                        'followers':0,
+                        'color':Utils.getRandomColor()
+                    },
+                    {
+                        'name':'Android',
+                        'tweets':0,
+                        'followers':0,
+                        'color':Utils.getRandomColor()
+                    },
+                    {
+                        'name':'Apple',
+                        'tweets':0,
+                        'followers':0,
+                        'color':Utils.getRandomColor()
+                    },
+                    {
+                        'name':'SamsungMobile',
+                        'tweets':0,
+                        'followers':0,
+                        'color':Utils.getRandomColor()
+                    },
+                    {
+                        'name': 'instagram',
+                        'tweets':0,
+                        'followers':0,
+                        'color':Utils.getRandomColor()
+                    },
+                    {
+                        'name': 'facebook',
+                        'tweets':0,
+                        'followers':0,
+                        'color':Utils.getRandomColor()
+                    },
+                    {
+                        'name': 'Sony',
+                        'tweets':0,
+                        'followers':0,
+                        'color':Utils.getRandomColor()
+                    },
+                    {
+                        'name': 'jetbrains',
+                        'tweets':0,
+                        'followers':0,
+                        'color':Utils.getRandomColor()
+                    },
+                    {
+                        'name':'oracle',
+                        'tweets':0,
+                        'followers':0,
+                        'color':Utils.getRandomColor()
+                    }
+                ];
+                console.log(response.data.Row.length);;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-                    data_statuses.push({
-                        "name":(getPlatform(Utils.decode(response.data.Row[i]['key']))),
-                        "tweets":parseInt(Utils.decode(response.data.Row[i].Cell[0]['$'])),
-                        "color":Utils.getRandomColor()
-                    });
+                if(response.data.Row.length == 0){
+                    data=zeroData;
+                }
+                else{
+                    for(var i=0;i<response.data.Row.length;i++){
 
-                    data_followers.push({
-                        "name":(getPlatform(Utils.decode(response.data.Row[i]['key']))),
-                        "followers":parseInt(Utils.decode(response.data.Row[i].Cell[1]['$'])),
-                        "color":Utils.getRandomColor()
-                    })
+                        data.push({
+                            "name":(getPlatform(Utils.decode(response.data.Row[i]['key']))),
+                            "tweets":parseInt(Utils.decode(response.data.Row[i].Cell[0]['$'])),
+                            "followers":parseInt(Utils.decode(response.data.Row[i].Cell[1]['$'])),
+                            "color":Utils.getRandomColor()
+                        });
+                    }
+
+                    Utils.putMissingBrands(zeroData,data);
                 }
 
-                Utils.getAmBarChart("technology_statuses",data_statuses,false,"nname","tweets")
-                Utils.getAmBarChart("technology_followers",data_statuses,false,"name","followers")
+                Utils.get3DStackedColumnChart("technology",data,"name","tweets","followers")
             }, function errorCallback(response) {
                 console.log("error")
             });
@@ -41,32 +110,94 @@ angular.module("App").controller("Section4Controller",["$scope","$http","Utils",
         /* Video games companies */
         $http({
             method: 'GET',
-            url: 'http://localhost:8080/video_games/*',
+            url: 'http://159.203.164.202:8080/video_games/*',
             headers: {
                 'Accept':'Application/json',
                 'Content-type':'charset=utf-8'
             }
         }).then(function successCallback(response) {
-            var data_statuses=[];
-            var data_followers=[];
-            console.log(response.data.Row.length)
-            for(var i=0;i<response.data.Row.length;i++){
+            var data=[];
+            var zeroData=[
+                {
+                    'name':'PlayStation',
+                    'tweets':0,
+                    'followers':0,
+                    'color':Utils.getRandomColor()
+                },
+                {
+                    'name':'Xbox',
+                    'tweets':0,
+                    'followers':0,
+                    'color':Utils.getRandomColor()
+                },
+                {
+                    'name':'RockstarGames',
+                    'tweets':0,
+                    'followers':0,
+                    'color':Utils.getRandomColor()
+                },
+                {
+                    'name':'NintendoAmerica',
+                    'tweets':0,
+                    'followers':0,
+                    'color':Utils.getRandomColor()
+                },
+                {
+                    'name':'Ubisoft',
+                    'tweets':0,
+                    'followers':0,
+                    'color':Utils.getRandomColor()
+                },
+                {
+                    'name':'EA',
+                    'tweets':0,
+                    'followers':0,
+                    'color':Utils.getRandomColor()
+                },
+                {
+                    'name': 'EASPORTSFIFA',
+                    'tweets':0,
+                    'followers':0,
+                    'color':Utils.getRandomColor()
+                },
+                {
+                    'name': 'LeagueOfLegends',
+                    'tweets':0,
+                    'followers':0,
+                    'color':Utils.getRandomColor()
+                },
+                {
+                    'name': 'CallofDuty',
+                    'tweets':0,
+                    'followers':0,
+                    'color':Utils.getRandomColor()
+                },
+                {
+                    'name': 'Treyarch',
+                    'tweets':0,
+                    'followers':0,
+                    'color':Utils.getRandomColor()
+                }];
 
-                data_statuses.push({
-                    "name":(getPlatform(Utils.decode(response.data.Row[i]['key']))),
-                    "tweets":parseInt(Utils.decode(response.data.Row[i].Cell[0]['$'])),
-                    "color":Utils.getRandomColor()
-                });
+            console.log(response.data.Row.length);;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-                data_followers.push({
-                    "name":(getPlatform(Utils.decode(response.data.Row[i]['key']))),
-                    "followers":parseInt(Utils.decode(response.data.Row[i].Cell[1]['$'])),
-                    "color":Utils.getRandomColor()
-                })
+            if(response.data.Row.length == 0){
+                data=zeroData;
+            }
+            else {
+                for (var i = 0; i < response.data.Row.length; i++) {
+
+                    data.push({
+                        "name": (Utils.decode(response.data.Row[i]['key'])),
+                        "tweets": parseInt(Utils.decode(response.data.Row[i].Cell[0]['$'])),
+                        "followers": parseInt(Utils.decode(response.data.Row[i].Cell[1]['$'])),
+                        "color": Utils.getRandomColor()
+                    });
+                }
+                Utils.putMissingBrands(zeroData,data);
             }
 
-            Utils.getAmBarChart("video_games_statuses",data_statuses,false,"name","tweets")
-            Utils.getAmBarChart("video_games_followers",data_statuses,false,"name","followers")
+            Utils.getClusteredBarChar("video_games",data,"name","tweets","followers")
         }, function errorCallback(response) {
             console.log("error")
         });
@@ -78,32 +209,106 @@ angular.module("App").controller("Section4Controller",["$scope","$http","Utils",
         /* Fashion Brands */
         $http({
             method: 'GET',
-            url: 'http://localhost:8080/fashion/*',
+            url: 'http://159.203.164.202:8080/fashion/*',
             headers: {
                 'Accept':'Application/json',
                 'Content-type':'charset=utf-8'
             }
         }).then(function successCallback(response) {
-            var data_statuses=[];
-            var data_followers=[];
-            console.log(response.data.Row.length)
-            for(var i=0;i<response.data.Row.length;i++){
+            var data=[];
+            var zeroData=[
+                {
+                    'name':'CHANEL',
+                    'tweets':0,
+                    'followers':0,
+                    'color':Utils.getRandomColor()
+                },
+                {
+                    'name':'VictoriasSecret',
+                    'tweets':0,
+                    'followers':0,
+                    'color':Utils.getRandomColor()
+                },
+                {
+                    'name':'hm',
+                    'tweets':0,
+                    'followers':0,
+                    'color':Utils.getRandomColor()
+                },
+                {
+                    'name':'marcjacobs',
+                    'tweets':0,
+                    'followers':0,
+                    'color':Utils.getRandomColor()
+                },
+                {
+                    'name':'Burberry',
+                    'tweets':0,
+                    'followers':0,
+                    'color':Utils.getRandomColor()
+                },
+                {
+                    'name':'Dior',
+                    'tweets':0,
+                    'followers':0,
+                    'color':Utils.getRandomColor()
+                },
+                {
+                    'name': 'dolcegabbana',
+                    'tweets':0,
+                    'followers':0,
+                    'color':Utils.getRandomColor()
+                },
+                {
+                    'name': 'LouisVuitton',
+                    'tweets':0,
+                    'followers':0,
+                    'color':Utils.getRandomColor()
+                },
+                {
+                    'name': 'gucci',
+                    'tweets':0,
+                    'followers':0,
+                    'color':Utils.getRandomColor()
+                },
+                {
+                    'name': 'YSL',
+                    'tweets':0,
+                    'followers':0,
+                    'color':Utils.getRandomColor()
+                },
+                {
+                    'name': 'ZARA',
+                    'tweets':0,
+                    'followers':0,
+                    'color':Utils.getRandomColor()
+                },
+                {
+                    'name': 'MichaelKors',
+                    'tweets':0,
+                    'followers':0,
+                    'color':Utils.getRandomColor()
+                }];
 
-                data_statuses.push({
-                    "name":(getPlatform(Utils.decode(response.data.Row[i]['key']))),
-                    "tweets":parseInt(Utils.decode(response.data.Row[i].Cell[0]['$'])),
-                    "color":Utils.getRandomColor()
-                });
+            console.log(response.data.Row.length);;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-                data_followers.push({
-                    "name":(getPlatform(Utils.decode(response.data.Row[i]['key']))),
-                    "followers":parseInt(Utils.decode(response.data.Row[i].Cell[1]['$'])),
-                    "color":Utils.getRandomColor()
-                })
+            if(response.data.Row.length == 0){
+                data=zeroData;
+            }
+            else {
+                for (var i = 0; i < response.data.Row.length; i++) {
+
+                    data.push({
+                        "name": (Utils.decode(response.data.Row[i]['key'])),
+                        "tweets": parseInt(Utils.decode(response.data.Row[i].Cell[0]['$'])),
+                        "followers": parseInt(Utils.decode(response.data.Row[i].Cell[1]['$'])),
+                        "color": Utils.getRandomColor()
+                    });
+                }
+                Utils.putMissingBrands(zeroData,data);
             }
 
-            Utils.getAmBarChart("fashion_statuses",data_statuses,false,"Brand's name","tweets")
-            Utils.getAmBarChart("fashion_followers",data_statuses,false,"Brand's name","followers")
+            Utils.get3DStackedColumnChart("fashion",data,"name","tweets","followers")
         }, function errorCallback(response) {
             console.log("error")
         });
@@ -115,32 +320,70 @@ angular.module("App").controller("Section4Controller",["$scope","$http","Utils",
         /* Food chains */
         $http({
             method: 'GET',
-            url: 'http://localhost:8080/foods/*',
+            url: 'http://159.203.164.202:8080/foods/*',
             headers: {
                 'Accept':'Application/json',
                 'Content-type':'charset=utf-8'
             }
         }).then(function successCallback(response) {
-            var data_statuses=[];
-            var data_followers=[];
-            console.log(response.data.Row.length)
-            for(var i=0;i<response.data.Row.length;i++){
+            var data=[];
+            var zeroData=[
+                {
+                    'name':'SUBWAY',
+                    'tweets':0,
+                    'followers':0,
+                    'color':Utils.getRandomColor()
+                },
+                {
+                    'name':'McDonalds',
+                    'tweets':0,
+                    'followers':0,
+                    'color':Utils.getRandomColor()
+                },
+                {
+                    'name':'WholeFoods',
+                    'tweets':0,
+                    'followers':0,
+                    'color':Utils.getRandomColor()
+                },
+                {
+                    'name':'Starbucks',
+                    'tweets':0,
+                    'followers':0,
+                    'color':Utils.getRandomColor()
+                },
+                {
+                    'name':'Wendys',
+                    'tweets':0,
+                    'followers':0,
+                    'color':Utils.getRandomColor()
+                },
+                {
+                    'name':'BurgerKing',
+                    'tweets':0,
+                    'followers':0,
+                    'color':Utils.getRandomColor()
+                }];
 
-                data_statuses.push({
-                    "name":(getPlatform(Utils.decode(response.data.Row[i]['key']))),
-                    "tweets":parseInt(Utils.decode(response.data.Row[i].Cell[0]['$'])),
-                    "color":Utils.getRandomColor()
-                });
+            console.log(response.data.Row.length);;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-                data_followers.push({
-                    "name":(getPlatform(Utils.decode(response.data.Row[i]['key']))),
-                    "followers":parseInt(Utils.decode(response.data.Row[i].Cell[1]['$'])),
-                    "color":Utils.getRandomColor()
-                })
+            if(response.data.Row.length == 0){
+                data=zeroData;
             }
+            else {
 
-            Utils.getAmBarChart("foods_statuses",data_statuses,false,"name","tweets")
-            Utils.getAmBarChart("foods_followers",data_statuses,false,"name","followers")
+                for (var i = 0; i < response.data.Row.length; i++) {
+
+                    data.push({
+                        "name": (Utils.decode(response.data.Row[i]['key'])),
+                        "tweets": parseInt(Utils.decode(response.data.Row[i].Cell[0]['$'])),
+                        "followers": parseInt(Utils.decode(response.data.Row[i].Cell[1]['$'])),
+                        "color": Utils.getRandomColor()
+                    });
+                }
+                Utils.putMissingBrands(zeroData,data);
+            }
+            Utils.getClusteredBarChar("foods",data,"name","tweets","followers")
         }, function errorCallback(response) {
             console.log("error")
         });

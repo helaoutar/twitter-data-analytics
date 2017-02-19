@@ -3,14 +3,14 @@ angular.module("App").controller("Section2Controller",["$scope","$http","Utils",
         /* Countries activity*/
         $http({
             method: 'GET',
-            url: 'http://localhost:8080/countries/*',
+            url: 'http://159.203.164.202:8080/countries/*',
             headers: {
                 'Accept':'Application/json',
                 'Content-type':'charset=utf-8'
             }
             }).then(function successCallback(response) {
-                var data=[]
-                console.log(response.data.Row)
+                var data=[];;;;;;;;;;;;;;;;;;;;;
+                console.log(response.data.Row);;;;;;;;;;;;;;;;;;;;;
                 for(var i=0;i<response.data.Row.length;i++){
                     if(Utils.decode(response.data.Row[i]['key'])!=="und")
                     {
@@ -33,14 +33,14 @@ angular.module("App").controller("Section2Controller",["$scope","$http","Utils",
             /*Hourly activity*/
             $http({
             method: 'GET',
-            url: 'http://localhost:8080/hourly_activity/*',
+            url: 'http://159.203.164.202:8080/hourly_activity/*',
             headers: {
                 'Accept':'Application/json',
                 'Content-type':'charset=utf-8'
             }
             }).then(function successCallback(response) {
-                var data=[]
-                console.log(response.data.Row)
+                var data=[];;;;;;;;;;;;;;;;;;;;;
+                console.log(response.data.Row);;;;;;;;;;;;;;;;;;;;;
                 for(var i=0;i<response.data.Row.length;i++){
                     if(Utils.decode(response.data.Row[i]['key'])!=="und")
                     {
