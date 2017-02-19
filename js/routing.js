@@ -64,12 +64,12 @@ myApp.config(function($stateProvider,$urlRouterProvider){
         name:'section5',
         url:'/5',
         templateUrl:'/section5.html',
-        controller: "Section4Controller",
+        controller: "Section5Controller",
         resolve: {
             deps: ['$ocLazyLoad', '$rootScope', '$state', function ($ocLazyLoad, $rootScope, $state) {
                 return $ocLazyLoad.load({
                     name: 'App',
-                    files: ['/assets/controllers/Section4Controller.js',
+                    files: ['/assets/controllers/Section5Controller.js',
                         '/assets/managers/Utils.js'
                     ]
                 });

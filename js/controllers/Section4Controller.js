@@ -4,7 +4,7 @@ angular.module("App").controller("Section4Controller",["$scope","$http","Utils",
         /* Technology companies*/
         $http({
             method: 'GET',
-            url: 'http://159.203.164.202:8080/technology/*',
+            url: contextUrl+'/technology/*',
             headers: {
                 'Accept':'Application/json',
                 'Content-type':'charset=utf-8'
@@ -110,7 +110,7 @@ angular.module("App").controller("Section4Controller",["$scope","$http","Utils",
         /* Video games companies */
         $http({
             method: 'GET',
-            url: 'http://159.203.164.202:8080/video_games/*',
+            url: contextUrl+'/video_games/*',
             headers: {
                 'Accept':'Application/json',
                 'Content-type':'charset=utf-8'
@@ -209,7 +209,7 @@ angular.module("App").controller("Section4Controller",["$scope","$http","Utils",
         /* Fashion Brands */
         $http({
             method: 'GET',
-            url: 'http://159.203.164.202:8080/fashion/*',
+            url: contextUrl+'/fashion/*',
             headers: {
                 'Accept':'Application/json',
                 'Content-type':'charset=utf-8'
@@ -320,7 +320,7 @@ angular.module("App").controller("Section4Controller",["$scope","$http","Utils",
         /* Food chains */
         $http({
             method: 'GET',
-            url: 'http://159.203.164.202:8080/foods/*',
+            url: contextUrl+'/foods/*',
             headers: {
                 'Accept':'Application/json',
                 'Content-type':'charset=utf-8'

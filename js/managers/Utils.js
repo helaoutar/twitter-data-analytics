@@ -440,6 +440,132 @@ myApp.factory('Utils',function(){
                     "enabled": true
                 }
             } );
+        },
+        getAmHorBarChart:function(id,data,flag,x,y){
+            var chart = AmCharts.makeChart(id, {
+                    "type": "serial",
+                    "theme": "light",
+                    "categoryField": x,
+                    "rotate": true,
+                    "startDuration": 1,
+                    "categoryAxis": {
+                        "gridPosition": "start",
+                        "position": "left"
+                    },
+                    "trendLines": [],
+                    "graphs": [
+                        {
+                            "balloonText": "Income:[[value]]",
+                            "fillAlphas": 0.8,
+                            "id": "AmGraph-1",
+                            "lineAlpha": 0.2,
+                            "title": "Income",
+                            "type": "column",
+                            "valueField": y
+                        }
+                    ],
+                    "guides": [],
+                    "valueAxes": [
+                        {
+                            "id": "ValueAxis-1",
+                            "position": "top",
+                            "axisAlpha": 0
+                        }
+                    ],
+                    "allLabels": [],
+                    "balloon": {},
+                    "titles": [],
+                    "dataProvider": data,
+                    "export": {
+                        "enabled": flag
+                    }
+
+                });
+        },
+        isValid:function(input){
+            return true
+            return /^[ -~]+$/.test(input)
+        },
+        getAmPieChart:function(id,data,flag,x,y){
+            var chart = AmCharts.makeChart(id, {
+                "type": "pie",
+                "startDuration": 0,
+                "theme": "light",
+                "addClassNames": true,
+                "legend":{
+                    "position":"right",
+                    "marginRight":100,
+                    "autoMargins":false
+                },
+                "innerRadius": "30%",
+                "defs": {
+                    "filter": [{
+                    "id": "shadow",
+                    "width": "200%",
+                    "height": "200%",
+                    "feOffset": {
+                        "result": "offOut",
+                        "in": "SourceAlpha",
+                        "dx": 0,
+                        "dy": 0
+                    },
+                    "feGaussianBlur": {
+                        "result": "blurOut",
+                        "in": "offOut",
+                        "stdDeviation": 5
+                    },
+                    "feBlend": {
+                        "in": "SourceGraphic",
+                        "in2": "blurOut",
+                        "mode": "normal"
+                    }
+                    }]
+                },
+                "dataProvider": data,
+                "valueField": y,
+                "titleField": x,
+                "export": {
+                    "enabled": flag
+                }
+                });
+
+                chart.addListener("init", handleInit);
+
+                chart.addListener("rollOverSlice", function(e) {
+                handleRollOver(e);
+                });
+
+                function handleInit(){
+                chart.legend.addListener("rollOverItem", this.handleRollOver);
+                }
+
+                var handleRollOver=function(e){
+                var wedge = e.dataItem.wedge.node;
+                wedge.parentNode.appendChild(wedge);
+                }
+        },
+        getAm3DPieChart:function(id,data,flag,x,y,title){
+            var chart = AmCharts.makeChart(id, {
+                    "type": "pie",
+                    "theme": "light",
+                    "titles": [ {
+                        "text": title,
+                        "size": 16
+                    } ],
+                    "dataProvider":data,
+                    "valueField": y,
+                    "titleField": x,
+                    "startEffect": "elastic",
+                    "startDuration": 2,
+                    "labelRadius": 15,
+                    "innerRadius": "50%",
+                    "depth3D": 10,
+                    "balloonText": "[[title]]<br><span style='font-size:14px'><b>[[value]]</b> ([[percents]]%)</span>",
+                    "angle": 15,
+                    "export": {
+                        "enabled": flag
+                    }
+                    } );
         }
     }
 });

@@ -2,15 +2,15 @@ angular.module("App").controller("Section1Controller",["$scope","$http","Utils",
     $scope.init=function(){
         $http({
             method: 'GET',
-            url: 'http://159.203.164.202:8080/lang/*',
+            url: contextUrl+'/lang/*',
             headers: {
                 'Accept':'Application/json',
                 'Content-type':'charset=utf-8'
             }
             }).then(function successCallback(response) {
-                var data=[];;;;;;;;;;;
+                var data=[]
                 for(var i=0;i<response.data.Row.length;i++){
-                    if(Utils.decode(response.data.Row[i]['key']) != "und")
+                    if(Utils.decode(response.data.Row[i]['key'])!=="und")
                     {
                         data.push({
                             "language":(getLanguageName(Utils.decode(response.data.Row[i]['key']))),

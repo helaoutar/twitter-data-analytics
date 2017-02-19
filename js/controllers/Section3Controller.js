@@ -3,7 +3,7 @@ angular.module("App").controller("Section3Controller",["$scope","$http","Utils",
         /* Used platforms*/
         $http({
             method: 'GET',
-            url: 'http://159.203.164.202:8080/used_platforms/*',
+            url: contextUrl+'/used_platforms/*',
             headers: {
                 'Accept':'Application/json',
                 'Content-type':'charset=utf-8'
@@ -48,13 +48,13 @@ angular.module("App").controller("Section3Controller",["$scope","$http","Utils",
         /* a tweet’s length and its impact on the retweet count */
         $http({
             method: 'GET',
-            url: 'http://159.203.164.202:8080/length_engagement/*',
+            url: contextUrl+'/length_engagement/*',
             headers: {
                 'Accept':'Application/json',
                 'Content-type':'charset=utf-8'
             }
         }).then(function successCallback(response) {
-            var data=[];;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+            var data=[];;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; // are you ok ? xD
             console.log(response.data.Row.length);;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
             for(var i=0;i<response.data.Row.length;i++){
 
@@ -77,7 +77,7 @@ angular.module("App").controller("Section3Controller",["$scope","$http","Utils",
         /* Number of twitter account created per year */
         $http({
             method: 'GET',
-            url: 'http://159.203.164.202:8080/account_year/*',
+            url: contextUrl+'/account_year/*',
             headers: {
                 'Accept':'Application/json',
                 'Content-type':'charset=utf-8'
@@ -105,7 +105,7 @@ angular.module("App").controller("Section3Controller",["$scope","$http","Utils",
         /* type of tweet and engagement rate */
         $http({
             method: 'GET',
-            url: 'http://159.203.164.202:8080/type_engagement/*',
+            url: contextUrl+'/type_engagement/*',
             headers: {
                 'Accept':'Application/json',
                 'Content-type':'charset=utf-8'
