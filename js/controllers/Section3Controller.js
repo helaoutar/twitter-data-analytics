@@ -12,7 +12,7 @@ angular.module("App").controller("Section3Controller",["$scope","$http","Utils",
                 var data=[];
                 var other=0;
                 var total=0;
-                console.log(response.data.Row.length);
+               // console.log(response.data.Row.length);
 
                 for(var i=0;i<response.data.Row.length;i++){
                     total+=parseInt(Utils.decode(response.data.Row[i].Cell[0]['$']));
@@ -57,7 +57,7 @@ angular.module("App").controller("Section3Controller",["$scope","$http","Utils",
             var data=[];;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; // are you ok ? xD
             console.log(response.data.Row.length);;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
             for(var i=0;i<response.data.Row.length;i++){
-
+                        
                 data.push({
                     "length":Utils.decode(response.data.Row[i]['key']),
                     "retweets_average":parseInt(Utils.decode(response.data.Row[i].Cell[0]['$'])),
@@ -65,6 +65,7 @@ angular.module("App").controller("Section3Controller",["$scope","$http","Utils",
                 })
 
             }
+            data.sort(function(x,y){return x.length-y.length})
             Utils.getAmLineChart("tweet_length_engagement",data,false,"length","retweets_average")
         }, function errorCallback(response) {
             console.log("error")
@@ -93,6 +94,7 @@ angular.module("App").controller("Section3Controller",["$scope","$http","Utils",
                     "color":Utils.getRandomColor()
                 })
             }
+            data.sort(function(x,y){return x.year-y.year})
             Utils.getAm3DBarChart("accounts_year",data,false,"accountsCount","year")
         }, function errorCallback(response) {
             console.log("error")

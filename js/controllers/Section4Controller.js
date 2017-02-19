@@ -88,7 +88,7 @@ angular.module("App").controller("Section4Controller",["$scope","$http","Utils",
                     for(var i=0;i<response.data.Row.length;i++){
 
                         data.push({
-                            "name":(getPlatform(Utils.decode(response.data.Row[i]['key']))),
+                            "name":((Utils.decode(response.data.Row[i]['key']))),
                             "tweets":parseInt(Utils.decode(response.data.Row[i].Cell[0]['$'])),
                             "followers":parseInt(Utils.decode(response.data.Row[i].Cell[1]['$'])),
                             "color":Utils.getRandomColor()
@@ -97,7 +97,7 @@ angular.module("App").controller("Section4Controller",["$scope","$http","Utils",
 
                     Utils.putMissingBrands(zeroData,data);
                 }
-
+                console.log(data)
                 Utils.get3DStackedColumnChart("technology",data,"name","tweets","followers")
             }, function errorCallback(response) {
                 console.log("error")
@@ -194,9 +194,9 @@ angular.module("App").controller("Section4Controller",["$scope","$http","Utils",
                         "color": Utils.getRandomColor()
                     });
                 }
+               
                 Utils.putMissingBrands(zeroData,data);
             }
-
             Utils.getClusteredBarChar("video_games",data,"name","tweets","followers")
         }, function errorCallback(response) {
             console.log("error")

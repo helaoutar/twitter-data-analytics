@@ -9,9 +9,9 @@ angular.module("App").controller("Section5Controller",["$scope","$http","Utils",
             }
             }).then(function successCallback(response) {
                 var tmp=[]
-                console.log(response.data.Row)
+                //console.log(response.data.Row)
                 for(var i=0;i<response.data.Row.length;i++){
-                    if(Utils.decode(response.data.Row[i]['key'])!=="und")
+                    if(Utils.decode(response.data.Row[i]['key'])!="undefined")
                     {
                         console.log((Utils.decode(response.data.Row[i]['key'])))
                         tmp.push({
@@ -70,7 +70,7 @@ angular.module("App").controller("Section5Controller",["$scope","$http","Utils",
 
         $http({
                 method: 'GET',
-                url: contextUrl+'/technology/*',
+                url: contextUrl+'/publishers/*',
                 headers: {
                     'Accept':'Application/json',
                     'Content-type':'charset=utf-8'
