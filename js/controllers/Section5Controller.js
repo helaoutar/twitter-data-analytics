@@ -11,7 +11,7 @@ angular.module("App").controller("Section5Controller",["$scope","$http","Utils",
                 var tmp=[]
                 //console.log(response.data.Row)
                 for(var i=0;i<response.data.Row.length;i++){
-                    if(Utils.decode(response.data.Row[i]['key'])!="undefined")
+                    if(Utils.decode(response.data.Row[i]['key'])!="undefined" && Utils.isValid(Utils.decode(response.data.Row[i]['key'])))
                     {
                         console.log((Utils.decode(response.data.Row[i]['key'])))
                         tmp.push({
@@ -25,7 +25,7 @@ angular.module("App").controller("Section5Controller",["$scope","$http","Utils",
                 for(var i=0;i<10;i++){
                     data.push(tmp[i])
                 }
-                Utils.getAm3DPieChart("hashtags",data,false,"hashtags","tweets","Top 10 hashtags")
+                Utils.getAm3DPieChart("hashtags",data,true,"hashtags","tweets","Top 10 hashtags")
             }, function errorCallback(response) {
                 console.log("error")
             });
@@ -45,7 +45,7 @@ angular.module("App").controller("Section5Controller",["$scope","$http","Utils",
                 var tmp=[]
                 console.log(response.data.Row)
                 for(var i=0;i<response.data.Row.length;i++){
-                    if(Utils.decode(response.data.Row[i]['key'])!=="und")
+                    if(Utils.decode(response.data.Row[i]['key'])!=="und" && Utils.isValid(Utils.decode(response.data.Row[i]['key'])))
                     {
                         console.log((Utils.decode(response.data.Row[i]['key'])))
                         tmp.push({
@@ -58,7 +58,7 @@ angular.module("App").controller("Section5Controller",["$scope","$http","Utils",
                 for(var i=0;i<10;i++){
                     data.push(tmp[i])   
                 }
-                Utils.getAmHorBarChart("mentions",data,false,"mentions","tweets")
+                Utils.getAmHorBarChart("mentions",data,true,"mentions","tweets")
             }, function errorCallback(response) {
                 console.log("error")
             });

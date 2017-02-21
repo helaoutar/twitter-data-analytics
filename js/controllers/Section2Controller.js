@@ -22,7 +22,7 @@ angular.module("App").controller("Section2Controller",["$scope","$http","Utils",
                     }
                 }
                 data.sort(function(x,y){return y.value-x.value})
-                Utils.getAm3DBarChart("countries_tweets",data,false,"country","value")
+                Utils.getAm3DBarChart("countries_tweets",data,true,"country","value")
             }, function errorCallback(response) {
                 console.log("error")
             });
@@ -52,7 +52,7 @@ angular.module("App").controller("Section2Controller",["$scope","$http","Utils",
                     }
                 }
                 data.sort(function(x,y){return x.hour-y.hour})
-                Utils.getAmLineChart("hourly_activity",data,false,"hour","value")
+                Utils.getAmLineChart("hourly_activity",data,true,"hour","value")
             }, function errorCallback(response) {
                 console.log("error")
             });
@@ -86,7 +86,7 @@ angular.module("App").controller("Section2Controller",["$scope","$http","Utils",
                 for(var i=0;i<10;i++){
                     data.push(tmp[i])
                 }
-                Utils.getAmPieChart("users_country",data,false,"country","tweets")
+                Utils.getAmPieChart("users_country",data,true,"country","tweets")
             }, function errorCallback(response) {
                 console.log("error")
             });

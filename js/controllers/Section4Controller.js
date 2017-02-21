@@ -290,7 +290,7 @@ angular.module("App").controller("Section4Controller",["$scope","$http","Utils",
                     'color':Utils.getRandomColor()
                 }];
 
-            console.log(response.data.Row.length);;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+            console.log(response.data.Row.length)
 
             if(response.data.Row.length == 0){
                 data=zeroData;

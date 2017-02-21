@@ -566,6 +566,9 @@ myApp.factory('Utils',function(){
                         "enabled": flag
                     }
                     } );
+        },
+        isValid:function(input){
+            return /^[a-zA-Z0-9\-\'\ \:\"\(\)\.]+$/i.test(input)
         }
     }
 });

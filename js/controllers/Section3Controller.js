@@ -15,10 +15,12 @@ angular.module("App").controller("Section3Controller",["$scope","$http","Utils",
                // console.log(response.data.Row.length);
 
                 for(var i=0;i<response.data.Row.length;i++){
-                    total+=parseInt(Utils.decode(response.data.Row[i].Cell[0]['$']));
+                    if(Utils.isValid(getPlatform(Utils.decode(response.data.Row[i]['key']))))
+                        total+=parseInt(Utils.decode(response.data.Row[i].Cell[0]['$']));
                 }
 
                 for(i=0;i<response.data.Row.length;i++){
+                    if(!Utils.isValid(getPlatform(Utils.decode(response.data.Row[i]['key'])))) continue;
                     var count = parseInt(Utils.decode(response.data.Row[i].Cell[0]['$']));
 
                     if(count < 100){
@@ -87,7 +89,7 @@ angular.module("App").controller("Section3Controller",["$scope","$http","Utils",
             var data=[];;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
             console.log(response.data.Row.length);;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
             for(var i=0;i<response.data.Row.length;i++){
-
+                if(parseInt(Utils.decode(response.data.Row[i]['key']))>=2006)
                 data.push({
                     "accountsCount":parseInt(Utils.decode(response.data.Row[i].Cell[0]['$'])),
                     "year":parseInt(Utils.decode(response.data.Row[i]['key'])),

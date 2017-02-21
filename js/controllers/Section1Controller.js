@@ -10,16 +10,16 @@ angular.module("App").controller("Section1Controller",["$scope","$http","Utils",
             }).then(function successCallback(response) {
                 var data=[]
                 for(var i=0;i<response.data.Row.length;i++){
-                    if(Utils.decode(response.data.Row[i]['key'])!=="und")
+                    if(Utils.decode(response.data.Row[i]['key'])!=="und" && getLanguageName(Utils.decode(response.data.Row[i]['key']))!==undefined)
                     {
-                        console.log(Utils.decode(response.data.Row[i]['key']))
+                        console.log()
                         data.push({
                             "language":(getLanguageName(Utils.decode(response.data.Row[i]['key']))),
                             "tweets":parseInt(Utils.decode(response.data.Row[i].Cell[0]['$']))
                         })
                     }
                 }
-                Utils.getAmBarChart("lang_dist",data,false,"language","tweets")
+                Utils.getAmBarChart("lang_dist",data,true,"language","tweets")
             }, function errorCallback(response) {
                 console.log("error")
             });
@@ -47,7 +47,7 @@ angular.module("App").controller("Section1Controller",["$scope","$http","Utils",
                             })
                         }
                     }
-                    Utils.getAm3DPieChart("tweets_types",data,false,"type","count","tweets types")
+                    Utils.getAm3DPieChart("tweets_types",data,true,"type","count","tweets types")
                 }, function errorCallback(response) {
                     console.log("error")
                 });
