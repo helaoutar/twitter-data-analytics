@@ -426,7 +426,6 @@ myApp.factory('Utils',function(){
                     "axisTitleOffset": 20,
                     "minimum": 0,
                     "axisAlpha": 0.15,
-                    'title':'engagement'
                 } ],
                 "startDuration": 2,
                 "graphs": [ {

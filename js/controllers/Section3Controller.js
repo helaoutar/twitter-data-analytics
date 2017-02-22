@@ -56,8 +56,8 @@ angular.module("App").controller("Section3Controller",["$scope","$http","Utils",
                 'Content-type':'charset=utf-8'
             }
         }).then(function successCallback(response) {
-            var data=[];;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; // are you ok ? xD
-            console.log(response.data.Row.length);;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+            var data=[]; // are you ok ? xD ... I'm okay :p
+            console.log(response.data.Row.length);
             for(var i=0;i<response.data.Row.length;i++){
                         
                 data.push({
@@ -86,8 +86,8 @@ angular.module("App").controller("Section3Controller",["$scope","$http","Utils",
                 'Content-type':'charset=utf-8'
             }
         }).then(function successCallback(response) {
-            var data=[];;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-            console.log(response.data.Row.length);;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+            var data=[];
+            console.log(response.data.Row.length);
             for(var i=0;i<response.data.Row.length;i++){
                 if(parseInt(Utils.decode(response.data.Row[i]['key']))>=2006)
                 data.push({
@@ -115,12 +115,12 @@ angular.module("App").controller("Section3Controller",["$scope","$http","Utils",
                 'Content-type':'charset=utf-8'
             }
         }).then(function successCallback(response) {
-            var data=[];;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-            console.log(response.data.Row.length);;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+            var data=[];
+            console.log(response.data.Row.length);
             for(var i=0;i<response.data.Row.length;i++){
                 var type = Utils.decode(response.data.Row[i]['key']);
                 var a = type.split(',');
-                type='|';
+                type='';
 
                 for(var j=0;j<a.length;j++){
                     if (a[j] == 'no media'){
@@ -136,9 +136,11 @@ angular.module("App").controller("Section3Controller",["$scope","$http","Utils",
                                 a[k]='';
                             }
                         }
-                        type+=n+' '+tp+'|';
+                        type+=n+' '+tp+',';
                     }
                 }
+                if(type[type.length-1]==',')
+                    type = type.substr(0,type.length-1);
                 data.push({
                     "type":type,
                     "retweets":parseInt(Utils.decode(response.data.Row[i].Cell[0]['$'])),
