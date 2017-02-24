@@ -154,8 +154,8 @@ angular.module("App").controller("Section5Controller",["$scope","$http","Utils",
                     for(var i=0;i<response.data.Row.length;i++){
                         data.push({
                             "name":(Utils.decode(response.data.Row[i]['key'])),
-                            "tweets":parseInt(Utils.decode(response.data.Row[i].Cell[0]['$'])),
-                            "followers":parseInt(Utils.decode(response.data.Row[i].Cell[1]['$'])),
+                            "tweets":parseInt(Utils.decode(response.data.Row[i].Cell[1]['$'])),
+                            "followers":parseInt(Utils.decode(response.data.Row[i].Cell[0]['$'])),
                             "color":Utils.getRandomColor()
                         });
                     }

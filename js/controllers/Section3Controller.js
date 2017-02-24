@@ -91,13 +91,13 @@ angular.module("App").controller("Section3Controller",["$scope","$http","Utils",
             for(var i=0;i<response.data.Row.length;i++){
                 if(parseInt(Utils.decode(response.data.Row[i]['key']))>=2006)
                 data.push({
-                    "accountsCount":parseInt(Utils.decode(response.data.Row[i].Cell[0]['$'])),
-                    "year":parseInt(Utils.decode(response.data.Row[i]['key'])),
+                    "year":parseInt(Utils.decode(response.data.Row[i].Cell[0]['$'])),
+                    "accountsCount":parseInt(Utils.decode(response.data.Row[i]['key'])),
                     "color":Utils.getRandomColor()
                 })
             }
             data.sort(function(x,y){return x.year-y.year})
-            Utils.getAm3DBarChart("accounts_year",data,false,"accountsCount","year")
+            Utils.getAm3DBarChart("accounts_year",data,false,"year","accountsCount")
         }, function errorCallback(response) {
             console.log("error")
         });

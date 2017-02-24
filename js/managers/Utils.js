@@ -454,11 +454,11 @@ myApp.factory('Utils',function(){
                     "trendLines": [],
                     "graphs": [
                         {
-                            "balloonText": "Income:[[value]]",
+                            "balloonText": "[[value]] "+x,
                             "fillAlphas": 0.8,
                             "id": "AmGraph-1",
                             "lineAlpha": 0.2,
-                            "title": "Income",
+                            "title": y,
                             "type": "column",
                             "valueField": y
                         }
@@ -480,10 +480,6 @@ myApp.factory('Utils',function(){
                     }
 
                 });
-        },
-        isValid:function(input){
-            return true
-            return /^[ -~]+$/.test(input)
         },
         getAmPieChart:function(id,data,flag,x,y){
             var chart = AmCharts.makeChart(id, {

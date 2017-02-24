@@ -79,7 +79,7 @@ angular.module("App").controller("Section4Controller",["$scope","$http","Utils",
                         'color':Utils.getRandomColor()
                     }
                 ];
-                console.log(response.data.Row.length);;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+                console.log(response.data.Row.length);
 
                 if(response.data.Row.length == 0){
                     data=zeroData;
@@ -89,8 +89,8 @@ angular.module("App").controller("Section4Controller",["$scope","$http","Utils",
 
                         data.push({
                             "name":((Utils.decode(response.data.Row[i]['key']))),
-                            "tweets":parseInt(Utils.decode(response.data.Row[i].Cell[0]['$'])),
-                            "followers":parseInt(Utils.decode(response.data.Row[i].Cell[1]['$'])),
+                            "tweets":parseInt(Utils.decode(response.data.Row[i].Cell[1]['$'])),
+                            "followers":parseInt(Utils.decode(response.data.Row[i].Cell[0]['$'])),
                             "color":Utils.getRandomColor()
                         });
                     }
@@ -179,7 +179,7 @@ angular.module("App").controller("Section4Controller",["$scope","$http","Utils",
                     'color':Utils.getRandomColor()
                 }];
 
-            console.log(response.data.Row.length);;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+            console.log(response.data.Row.length);
 
             if(response.data.Row.length == 0){
                 data=zeroData;
@@ -189,8 +189,8 @@ angular.module("App").controller("Section4Controller",["$scope","$http","Utils",
 
                     data.push({
                         "name": (Utils.decode(response.data.Row[i]['key'])),
-                        "tweets": parseInt(Utils.decode(response.data.Row[i].Cell[0]['$'])),
-                        "followers": parseInt(Utils.decode(response.data.Row[i].Cell[1]['$'])),
+                        "tweets": parseInt(Utils.decode(response.data.Row[i].Cell[1]['$'])),
+                        "followers": parseInt(Utils.decode(response.data.Row[i].Cell[0]['$'])),
                         "color": Utils.getRandomColor()
                     });
                 }
@@ -300,8 +300,8 @@ angular.module("App").controller("Section4Controller",["$scope","$http","Utils",
 
                     data.push({
                         "name": (Utils.decode(response.data.Row[i]['key'])),
-                        "tweets": parseInt(Utils.decode(response.data.Row[i].Cell[0]['$'])),
-                        "followers": parseInt(Utils.decode(response.data.Row[i].Cell[1]['$'])),
+                        "tweets": parseInt(Utils.decode(response.data.Row[i].Cell[1]['$'])),
+                        "followers": parseInt(Utils.decode(response.data.Row[i].Cell[0]['$'])),
                         "color": Utils.getRandomColor()
                     });
                 }
@@ -365,7 +365,7 @@ angular.module("App").controller("Section4Controller",["$scope","$http","Utils",
                     'color':Utils.getRandomColor()
                 }];
 
-            console.log(response.data.Row.length);;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+            console.log(response.data.Row.length);
 
             if(response.data.Row.length == 0){
                 data=zeroData;
@@ -376,8 +376,8 @@ angular.module("App").controller("Section4Controller",["$scope","$http","Utils",
 
                     data.push({
                         "name": (Utils.decode(response.data.Row[i]['key'])),
-                        "tweets": parseInt(Utils.decode(response.data.Row[i].Cell[0]['$'])),
-                        "followers": parseInt(Utils.decode(response.data.Row[i].Cell[1]['$'])),
+                        "tweets": parseInt(Utils.decode(response.data.Row[i].Cell[1]['$'])),
+                        "followers": parseInt(Utils.decode(response.data.Row[i].Cell[0]['$'])),
                         "color": Utils.getRandomColor()
                     });
                 }
@@ -387,9 +387,5 @@ angular.module("App").controller("Section4Controller",["$scope","$http","Utils",
         }, function errorCallback(response) {
             console.log("error")
         });
-        /*************
-         *
-         ***
-         ****/
     }
 }]);

@@ -15,8 +15,3 @@
   cursor: pointer;
   /*box-shadow: 0 0 30px 0 #000;*/
 }
-
-.amcharts-pie-slice:hover {
-  transform: scale(1.1);
-  filter: url(#shadow);
-}	

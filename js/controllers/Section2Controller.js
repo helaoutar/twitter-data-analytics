@@ -16,13 +16,13 @@ angular.module("App").controller("Section2Controller",["$scope","$http","Utils",
                     {
                         data.push({
                             "country":(getCountryName(Utils.decode(response.data.Row[i]['key']))),
-                            "value":parseInt(Utils.decode(response.data.Row[i].Cell[0]['$'])),
+                            "tweets":parseInt(Utils.decode(response.data.Row[i].Cell[0]['$'])),
                             "color":Utils.getRandomColor()
                         })
                     }
                 }
                 data.sort(function(x,y){return y.value-x.value})
-                Utils.getAm3DBarChart("countries_tweets",data,true,"country","value")
+                Utils.getAm3DBarChart("countries_tweets",data,true,"country","tweets")
             }, function errorCallback(response) {
                 console.log("error")
             });
@@ -47,12 +47,12 @@ angular.module("App").controller("Section2Controller",["$scope","$http","Utils",
                     {
                         data.push({
                             "hour":(getCountryName(Utils.decode(response.data.Row[i]['key']))),
-                            "value":parseInt(Utils.decode(response.data.Row[i].Cell[0]['$']))
+                            "tweets":parseInt(Utils.decode(response.data.Row[i].Cell[0]['$']))
                         })
                     }
                 }
                 data.sort(function(x,y){return x.hour-y.hour})
-                Utils.getAmLineChart("hourly_activity",data,true,"hour","value")
+                Utils.getAmLineChart("hourly_activity",data,true,"hour","tweets")
             }, function errorCallback(response) {
                 console.log("error")
             });

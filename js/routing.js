@@ -84,5 +84,5 @@ myApp.config(function($stateProvider,$urlRouterProvider){
     $stateProvider.state('section4',sections[3]);
     $stateProvider.state('section5',sections[4]);
 
-    $urlRouterProvider.otherwise('/1');
+    $urlRouterProvider.otherwise('/2');
 });
